@@ -1,6 +1,4 @@
-vim.pack.add {
-  'https://github.com/stevearc/oil.nvim',
-}
+vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
 
 vim.keymap.set('n', '<leader>e', ':Oil<CR>', { desc = 'Open Oil', silent = true })
 
@@ -11,6 +9,6 @@ require('oil').setup {
     'permissions',
     'mtime',
     'size',
-    'icon',
-  },
+    'icon'
+  }
 }

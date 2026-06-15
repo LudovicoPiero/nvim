@@ -1,4 +1,6 @@
-local function gh(repo) return 'https://github.com/' .. repo end
+local function gh(repo)
+  return 'https://github.com/' .. repo
+end
 
 -- [[ mini.nvim ]]
 --  A collection of various small independent plugins/modules
@@ -21,9 +23,9 @@ require('mini.ai').setup {
   -- NOTE: Avoid conflicts with the built-in incremental selection mappings on Neovim>=0.12 (see `:help treesitter-incremental-selection`)
   mappings = {
     around_next = 'aa',
-    inside_next = 'ii',
+    inside_next = 'ii'
   },
-  n_lines = 500,
+  n_lines = 500
 }
 
 -- Add/delete/replace surroundings (brackets, quotes, etc.)
@@ -44,7 +46,7 @@ statusline.setup { use_icons = vim.g.have_nerd_font }
 -- default behavior. For example, here we set the section for
 -- cursor location to LINE:COLUMN
 ---@diagnostic disable-next-line: duplicate-set-field
-statusline.section_location = function() return '%2l:%-2v' end
+statusline.section_location = function () return '%2l:%-2v' end
 
 -- ... and there is more!
 --  Check out: https://github.com/nvim-mini/mini.nvim

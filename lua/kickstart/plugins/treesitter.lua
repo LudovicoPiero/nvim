@@ -1,4 +1,6 @@
-local function gh(repo) return 'https://github.com/' .. repo end
+local function gh(repo)
+  return 'https://github.com/' .. repo
+end
 
 -- [[ Configure Treesitter ]]
 --  Used to highlight, edit, and navigate code
@@ -9,10 +11,12 @@ local function gh(repo) return 'https://github.com/' .. repo end
 vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
 -- Ensure basic parsers are installed
-local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+local parsers = {
+  'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc'
+}
 require('nvim-treesitter').install(parsers)
 
----@param buf integer
+---@param buf      integer
 ---@param language string
 local function treesitter_try_attach(buf, language)
   -- Check if a parser exists and load it
@@ -35,7 +39,7 @@ end
 
 local available_parsers = require('nvim-treesitter').get_available()
 vim.api.nvim_create_autocmd('FileType', {
-  callback = function(args)
+  callback = function (args)
     local buf, filetype = args.buf, args.match
 
     local language = vim.treesitter.language.get_lang(filetype)
@@ -48,12 +52,14 @@ vim.api.nvim_create_autocmd('FileType', {
       treesitter_try_attach(buf, language)
     elseif vim.tbl_contains(available_parsers, language) then
       -- If a parser is available in `nvim-treesitter`, auto-install it and enable it after the installation is done
-      require('nvim-treesitter').install(language):await(function() treesitter_try_attach(buf, language) end)
+      require('nvim-treesitter').install(language):await(function ()
+          treesitter_try_attach(buf, language)
+        end)
     else
       -- Try to enable treesitter features in case the parser exists but is not available from `nvim-treesitter`
       treesitter_try_attach(buf, language)
     end
-  end,
+  end
 })
 
 -- vim: ts=2 sts=2 sw=2 et

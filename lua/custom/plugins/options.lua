@@ -4,18 +4,7 @@ local opt = vim.opt
 opt.guicursor = 'n-v-i-c:block-Cursor'
 
 -- Visual characters.
-opt.fillchars = {
-  eob = ' ',
-  vert = '│',
-  fold = ' ',
-  diff = '╱',
-}
+opt.fillchars = { eob = ' ', vert = '│', fold = ' ', diff = '╱' }
 
 opt.list = true
-opt.listchars = {
-  tab = '  ',
-  trail = '·',
-  extends = '›',
-  precedes = '‹',
-  nbsp = '␣',
-}
+opt.listchars = { tab = '  ', trail = '·', extends = '›', precedes = '‹', nbsp = '␣' }

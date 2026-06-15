@@ -1,4 +1,6 @@
-local function gh(repo) return 'https://github.com/' .. repo end
+local function gh(repo)
+  return 'https://github.com/' .. repo
+end
 
 -- [[ Colorscheme ]]
 -- You can easily change to a different colorscheme.
@@ -10,8 +12,8 @@ vim.pack.add { gh 'folke/tokyonight.nvim' }
 ---@diagnostic disable-next-line: missing-fields
 require('tokyonight').setup {
   styles = {
-    comments = { italic = false }, -- Disable italics in comments
-  },
+    comments = { italic = false } -- Disable italics in comments
+  }
 }
 
 -- Load the colorscheme here.

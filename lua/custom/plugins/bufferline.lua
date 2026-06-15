@@ -1,6 +1,4 @@
-vim.pack.add {
-  'https://github.com/akinsho/bufferline.nvim',
-}
+vim.pack.add { 'https://github.com/akinsho/bufferline.nvim' }
 
 require('bufferline').setup {
   options = {
@@ -19,11 +17,11 @@ require('bufferline').setup {
     diagnostics_update_in_insert = false,
 
     -- Custom diagnostic icons.
-    diagnostics_indicator = function(count, level)
+    diagnostics_indicator = function (count, level)
       local icon = level:match 'error' and '󰅚 ' or '󰀪 '
       return ' ' .. icon .. count
-    end,
-  },
+    end
+  }
 }
 
 local map = vim.keymap.set

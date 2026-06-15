@@ -5,7 +5,7 @@
 --
 --]]
 
-local check_version = function()
+local check_version = function ()
   local verstr = tostring(vim.version())
   if not vim.version.ge then
     vim.health.error(string.format("Neovim out of date: '%s'. Upgrade to latest stable or nightly", verstr))
@@ -19,7 +19,7 @@ local check_version = function()
   end
 end
 
-local check_external_reqs = function()
+local check_external_reqs = function ()
   -- Basic utils: `git`, `make`, `unzip`
   for _, exe in ipairs { 'git', 'make', 'unzip', 'rg' } do
     local is_executable = vim.fn.executable(exe) == 1
@@ -34,7 +34,7 @@ local check_external_reqs = function()
 end
 
 return {
-  check = function()
+  check = function ()
     vim.health.start 'kickstart.nvim'
 
     vim.health.info [[NOTE: Not every warning is a 'must-fix' in `:checkhealth`
@@ -48,5 +48,5 @@ return {
 
     check_version()
     check_external_reqs()
-  end,
+  end
 }
